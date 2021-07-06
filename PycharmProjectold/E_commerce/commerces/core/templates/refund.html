@@ -1,0 +1,9 @@
+<h1>REFUND FORM</h1>
+
+<form method="POST">
+    {% csrf_token%}
+    Code:{{form.code}} <br><br>
+    Email:{{form.email}}<br><br>
+    Messages:{{form.messages}}
+    <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+</form>

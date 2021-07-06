@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+  {% block nav %}
+<!-- Button trigger modal -->
+{% if not user.is_authenticated %}
+<button type="button" class="btn btn-outline-primary ml-2" data-toggle="modal" data-target="#myModal">
+ Login
+</button>
+{% else %}
+<a type="button" class="btn btn-outline-primary ml-2" href="/logout">
+ Logout
+</a>
+{% endif %}
+
+
+  {% endblock nav %}
+{% block add %}
+{% if messages %}
+  {% for msg in messages %}
+{% if msg.tags == 'error' %}
+  <div class="alert alert-danger" role="alert">{{msg}}</div>
+{% else %}
+  <div class="alert alert-{{msg.tags}}" role="alert">{{msg}}</div>
+{% endif %}
+{% endfor %}
+{% endif %}
+{% endblock add %}
+{% block body %}
+<div class="container">
+  <h3>Create account</h3>
+<form method="POST", action="/signup  ">
+    {% csrf_token %}
+  <div class="form-group my-4">
+    <label for="email">Email address</label>
+    <input type="email" class="form-control" id="email" placeholder="name@example.com", name="Email">
+  </div>
+  <div class="form-group my-4">
+    <label for="name">Name</label>
+    <input type="tel" class="form-control" id="name" placeholder="Name", name="Name">
+  </div>
+  <div class="form-group my-4">
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="username" placeholder="Username", name="Username">
+  </div>
+  <div class="form-group my-4">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password", name="Password">
+  </div>
+  <div class="form-group my-4">
+    <label for="comfpass">Confirm Password</label>
+    <input type="password" class="form-control" id="comfpass" placeholder="Password", name="ConfirmPassword">
+  </div>
+<button type="submit" class="btn btn-primary">Sign up</button>
+
+
+</form>
+</div>
+{% endblock body %}
+{% block modal %}
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Login</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <!--login-->
+          <form method="post" action="/login">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="usernamelogin">Username</label>
+              <input type="text" class="form-control" id="usernamelogin" aria-describedby="emailHelp" placeholder="Enter your username" required name="usernamelogin">
+
+            </div>
+            <div class="form-group">
+              <label for="passwordlogin">Password</label>
+              <input type="password" class="form-control" id="passwordlogin" placeholder="Password" required name="passwordlogin">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+{% endblock modal %}

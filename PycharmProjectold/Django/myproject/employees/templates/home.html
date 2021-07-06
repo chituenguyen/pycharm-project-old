@@ -1,0 +1,13 @@
+<table border="1">
+    {% for employee in employees %}
+        <tr>
+            <td>{{employee.id}}</td>
+            <td>{{employee.first_name}}</td>
+            <td>{{employee.last_name}}</td>
+            <td>{{employee.phone_number}}</td>
+            <td>
+                <a href="{% url 'employee_data' employee.id %}">detail</a>
+            </td>
+        </tr>
+    {% endfor %}
+</table>

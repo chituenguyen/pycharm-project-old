@@ -1,0 +1,35 @@
+body{
+	margin: 0;
+	padding: 0;
+/*	overflow-y: scroll;*/
+
+
+}
+
+table{
+	width: 100%;
+	border-collapse: collapse;
+
+}
+tr{
+	height: 3rem;
+}
+td,th{
+	border:1px solid #454d55;
+	text-align: left;
+}
+th{
+	background-color: #343a40;
+	color: white;
+}
+
+
+.btn-show,.btn-hide{
+	display: none;
+}
+
+@media(max-width: 992px){
+	thead{
+		display: none;
+	}
+}

@@ -1,0 +1,64 @@
+
+
+{% extends 'base.html' %}
+{% load custom_tag %}
+{% block content %}
+	<button id="addItem">Add</button>
+<table>
+	<thead>
+		<tr class="row">
+			<th class="col-sm-12 col-md-6 col-lg-1">#</th>
+			<th class="col-sm-12 col-md-6 col-lg-2">Name</th>
+			<th class="col-sm-12 col-md-6 col-lg-2">Birthday</th>
+			<th class="col-sm-12 col-md-6 col-lg-2">Email</th>
+			<th class="col-sm-12 col-md-6 col-lg-1">Age</th>
+			<th class="col-sm-12 col-md-6 col-lg-1">Sex</th>
+			<th class="col-sm-12 col-md-6 col-lg-1">Status</th>
+			<th class="col-sm-12 col-md-6 col-lg-2">Active</th>
+		</tr>
+	</thead>
+	<tbody id="tBody">
+		{% for student in Students %}
+        <tr class="row">
+            <td class="col-sm-12 col-md-6 col-lg-1">{{student.id}}</td>
+            <td class="col-sm-12 col-md-6 col-lg-2">{{student.first_name}}</td>
+			<td class="col-sm-12 col-md-6 col-lg-2">{{student.date_of_birth}}</td>
+			<td class="col-sm-12 col-md-6 col-lg-2">{{student.email_id}}</td>
+            <td class="col-sm-12 col-md-6 col-lg-1">{{student.date_of_birth|cal_age}}</td>
+			<td class="col-sm-12 col-md-6 col-lg-1">{{student.student_gender}}</td>
+            <td class="col-sm-12 col-md-6 col-lg-1">{{student.student_status}}</td>
+			<td class="col-sm-12 col-md-6 col-lg-2">active</td>
+
+        </tr>
+    {% endfor %}
+	</tbody>
+
+
+<!-- 	<tr id="tr1">
+		<td>1</td>
+		<td id="name1">Nguyen Chi Tue</td>
+		<td id="birthday1">29/10/2000</td>
+		<td id="mail1">tuenguyen553@gmail.com</td>
+		<td id="age1">20</td>
+		<td id="sex1">Male</td>
+		<td id="status1">School</td>
+		<td>
+			<button id="btn1" class="btn-yes"><span><i class="fas fa-pen"></i></span></button>
+			<button id="btn-remove1" class="btn-remove"><span><i class="fas fa-trash"></i></span></button>
+			<button id="hide1" class="btn-hide"><span><i class="fas fa-check"></i></span></button>
+			<button id="hide-x1" class="btn-hidex"><span><i class="fas fa-times"></i></span></button>
+		</td>
+	</tr> -->
+
+
+
+</table>
+{% endblock %}
+
+
+
+
+
+
+
+

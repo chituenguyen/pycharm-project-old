@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block style %}
+.userImage
+{
+width:200px;
+height:200px;
+border-radius:50%;
+}
+{% endblock style %}
+{% block body %}
+<div class="container my-4">
+    <div class="media">
+        <img src="/user_image{{userImage.url}}" class="align-self-start mr-3 userImage" alt="...">
+        <div class="media-body info">
+            <h4 class="mt-0">{{username}}
+            {% if request.user == user_obj %}
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#EditModal">
+                    Edit
+                </button>
+            {% endif %}
+            <p>Follower : {{follower}} Following : {{following}}</p>
+            <p><b>{{bio}}</b></p>
+        </div>
+    </div>
+
+
+    {% for i in post %}
+        {% for j in i %}
+<div class="container my-4">
+    <div class="card">
+      <div class="card-header">
+          <h5><a  style="color:black">{{j.user}}</a></h5> <small>{{j.date}}</small>
+      </div>
+      <div class="card-body">
+        <h6 class="card-title">{{j.caption}}</h6>
+        {% if j.image %}
+            <img src="{{ j.image.url }}">
+        {% endif %}
+        <button class="btn btn-primary mr-4">Like</button>
+          <button class="btn btn-warning mx-5">Comment</button>
+          <button class="btn btn-danger mx-4">Report</button>
+      </div>
+    </div>
+</div>
+
+        {% endfor %}
+    {% endfor %}
+
+
+{% endblock body %}

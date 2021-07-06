@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="test_vnstock.crwaler_data.crwaler_data.items.scrapy_djangoitem" />
+          <option value="test_project.scraper.scraper.items.scrapy_djangoitem" />
+          <option value="test_project.scraper.scraper.spiders.spiders.scraper" />
+          <option value="test_project.scraper.scraper.spiders.TheodoSpider" />
+          <option value="E_commerce.settings.SETTINGS_PATH" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
